@@ -1,0 +1,150 @@
+.outerContainer{
+    max-width: 800px;
+    width: 88%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    font-family: 'Anton';
+    font-size: 40px;
+    color: black;
+    width: 100%;
+    text-align: center;
+    margin-top: 27px;
+    margin-bottom: 0;
+}
+
+#create_message_box{
+    border: #00b7ef 3px dashed;
+}
+
+#create_message_box legend{
+    border: none;
+    font-family: 'Poiret One';
+    font-size: 16px;
+    color: black;
+    margin-left: 1%;
+    padding: 1% 1%;
+}
+
+.input_container{
+    display: flex;
+    flex-direction: column;
+}
+
+.firstInput{
+    margin-top: 3%;
+    width: 23%;
+    height: 20px;
+}
+
+.secondInput{
+    height: 100px;
+    margin: 4% 0;
+}
+
+.thirdInput{
+    width: 23%;
+    margin-left: 76.4%;
+    height: 20px;
+}
+
+.toolsbar{
+    border: black 1px dashed;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+
+.toolsbar .button{
+    min-width: 60px;
+    width: 10%;
+    height: 70%;
+    margin: 0 1%;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    color: white;
+}
+
+.toolsbar .red{
+    background-color: red;
+}
+
+.toolsbar .green{
+    background-color: #66CDAA;
+
+}
+
+.msgContainer{
+    margin-top: 5%;
+    border: 3px solid #00b7ef; 
+}
+
+.msgLegendContainer{
+    font-family: 'Poiret One';
+    font-size: 16px;
+    color: black;
+}
+
+.msgTitleContainer{
+    font-family: 'Anton';
+    margin: 1% 0;
+    font-size: 30px;
+    color: #00b7ef; 
+}
+
+.msgContentContainer{
+    margin: 1% 0;
+    font-family: 'Arial';
+    font-size: 16px;
+    color: #c1bfc0;
+}
+
+.msgAuthorContainer{
+    margin: 1% 0;
+    font-family: 'Pinyon Script';
+    font-size: 24px;
+    color: black;
+    margin-left: 81%;
+}
+
+.errorlist{
+    color: red;
+}
+
+.auth_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    border-bottom: #00b7ef 1px solid;
+    height: 112px;
+}
+
+.authBtn{
+    border: #00b7ef 1px dashed;
+    text-decoration: none;
+    color: black;
+    padding: 13px;
+    font-family: 'Anton';
+    
+}
+
+.authBtn:hover{
+    border: #00b7ef 3px dashed;
+    background-color: #00b7ef;
+    text-decoration: none;
+    color: white;
+    padding: 13px;
+    font-family: 'Anton';
+    
+}
