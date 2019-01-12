@@ -30,7 +30,8 @@ DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
-    # 'rssfeed.apps.RssfeedConfig',
+    'users.apps.UsersConfig',
+    'messageboard.apps.MessageboardConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -146,6 +147,9 @@ STATICFILES_DIRS = [
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGIN_REDIRECT_URL = '/board'
+
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

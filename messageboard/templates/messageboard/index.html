@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>news list</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Pinyon+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Anton" />
+        <link href="{% static './css/messageboard.css'%}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+    <div class="outerContainer">
+        <h1>BILLBOARD</h1>
+
+        {% if user.is_authenticated %}
+            <div class="auth_container">
+                <p>{{ user.get_username }}</p>
+                <div>
+                    <a class="authBtn" href="{% url 'logout'%}">Logout</a>
+                </div>
+            </div>
+
+
+            {%if all_msgs %}
+            {% for message in all_msgs %}
+            <fieldset class="msgContainer">
+                    <legend class="msgLegendContainer">
+                        {{ message.date|date:"d/m/Y" }}
+                    </legend>
+                    <div>
+                        <h2 class="msgTitleContainer">{{ message.title }}</h2>
+                        <p class="msgContentContainer">{{ message.content }}</p>
+                        <p class="msgAuthorContainer" >{{ message.author }}</p>
+                    </div>
+            </fieldset>
+            {% endfor %}
+            {% else %}
+            <p>No messages</p>
+            <p>Click the '+' button to add a new message</p>
+            {% endif %}
+
+            <fieldset id="create_message_box">
+                    <legend>
+                        {{ today_date }}
+                    </legend>
+                    <form action="." method="post" id="messageForm" class="input_container">{% csrf_token %}
+                        <input name="title" class="firstInput" type="text" placeholder="title"/>
+                        <input name="content" class="secondInput" type="textarea" placeholder="your message here"/>
+                        <input name="author" class="thirdInput" type="text" placeholder="author"/>
+                    </form>
+            </fieldset>
+
+            <div class="toolsbar">
+                <button id="plusButton" class="button green"><i class="fas fa-plus"></i></button>
+                <button id="exitButton" class="button red"><i class="fas fa-times"></i></button>
+                <button type="submit" form="messageForm" id="submitButton" class="button green"><i class="fas fa-check"></i></button>
+            </div>
+        {% else %}
+        <div class="auth_container">
+            <p>AnonymousUser</p>
+            <div>
+                <a class="authBtn" href="{% url 'login'%}">Login</a>
+                <a class="authBtn" href="{% url 'register'%}">Register</a>
+            </div>
+
+        </div>
+        {% endif %}
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static './js/messageboard.js'%}"></script>
+    </body>
+</html>
